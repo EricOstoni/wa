@@ -12,6 +12,7 @@
       <router-link to="/signup">
         <i class="fa fa-user"></i>
       </router-link>
+      <button @click="logout">LOGOUT</button>
     </div>
     <p></p>
   </nav>
@@ -20,6 +21,12 @@
 <script>
 export default {
   name: "NavShop",
+  methods: {
+    logout() {
+      localStorage.removeItem("token");
+      this.$router.push("/");
+    },
+  },
 };
 </script>
 
@@ -47,9 +54,10 @@ export default {
   position: relative;
   right: 0;
   margin-left: auto;
+  margin-right: 65px;
   width: 50px;
   background-color: rgb(103, 118, 23);
-  gap: 15px;
+  gap: 10px;
 }
 
 .icons a {
@@ -59,5 +67,20 @@ export default {
 
 .icons a:hover {
   color: white;
+}
+
+button {
+  width: auto;
+  padding: 5px;
+  background-color: rgb(228, 102, 102);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #424;
 }
 </style>
